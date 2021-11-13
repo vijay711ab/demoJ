@@ -33,5 +33,20 @@ jobs:
       run: mvn -B package --file pom.xml
       
   publish:
+    runs-on: ubuntu-latest
+    name: Publish maven package
+    needs:  build
+    steps:  
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        args: MyReleaseMessage
+    
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.36.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
   
-      needs: build
