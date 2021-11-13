@@ -18,7 +18,7 @@ jobs:
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.36.0
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CODECHALLENGE_SECRET }}
         WITH_V: true
         DRY_RUN: true
     
@@ -40,13 +40,13 @@ jobs:
     - name: Create a Release
       uses: elgohr/Github-Release-Action@main
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CODECHALLENGE_SECRET }}
       with:
         args: MyReleaseMessage
     
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.36.0
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CODECHALLENGE_SECRET }}
         WITH_V: true
   
