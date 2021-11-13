@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - name: Bump version and push tag.
-      uses: anothrNick/github-tag-action@1.36.0
+    - uses: actions/checkout@v2
+    - uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.CODECHALLENGE_SECRET }}
-        GIT_DIR: ~/SayleeBhalekar/demoJ.git
         WITH_V: true
         DRY_RUN: true
         
