@@ -19,8 +19,10 @@ jobs:
       uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.CODECHALLENGE_SECRET }}
+        GIT_DIR: /home/runner/work/demoJ
         WITH_V: true
         DRY_RUN: true
+        
     
     - uses: actions/checkout@v2
     - name: Set up JDK 11
