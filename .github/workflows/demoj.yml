@@ -16,11 +16,11 @@ jobs:
 
     steps:
     - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@1.36.0
+      uses: anothrNick/github-tag-action@master
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DRY_RUN: true
-        SOURCE: $GITHUB_WORKSPACE
     
     - uses: actions/checkout@v2
     - name: Set up JDK 11
